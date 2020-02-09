@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div>
+    <header>
+        <h2>All Schedules</a></h2>
+    </header>
+</div>
+
+{% for post in object_list %}
+<!--will show the posts you created by clicking on add Post-->
+<div class="post-entry">
+    <h2><a href="{% url 'schedule_update' post.pk %}">
+            <div class="container">
+                {{ post.topic }}
+                <a class="btn btn-success ml-3" href="{% url 'schedule_delete' post.pk %}" role="button">Done</a></div>
+
+
+</div>
+{% endfor %}
+{% endblock content %}
+
+<!--<a href = "">{{ something }}</a>   this will make it appear as link-->

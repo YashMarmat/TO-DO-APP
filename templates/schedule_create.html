@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h2>New Schedule</h2>
+    <form action="" method = "post">{% csrf_token %}
+        {{ form.as_p }}
+        <input type = "submit" class="btn btn-success ml-2" value = "save"/>
+        <a class="btn btn-primary" href="{% url 'home' %}" role="button">Cancel</a>
+    </form>
+
+{% endblock content %}
+
+<!--
+• On the top line we inherit from our base template.
+• Use HTML <form> tags with the POST method since we’re sending data. If we were
+  receiving data from a form, for example in a search box, we would use GET.
+• Add a {% csrf_token %} which Django provides to protect our form from crosssite 
+  scripting attacks. You should use it for all your Django forms.
+• Then to output our form data we use {{ form.as_p }} which renders it within
+  paragraph <p> tags.
+• Finally specify an input type of submit and assign it the value “Save”
+-->
